@@ -1,0 +1,45 @@
+{% extends "index.html"%}
+{%block lista_geral_trades%}
+<table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Nota</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Data</th>
+              <th scope="col">Ativo</th>
+              <th scope="col">Modalidade</th>
+              <th scope="col">Mercado</th>
+              <th scope="col">QTD</th>
+              <th scope="col">Preço unt</th>
+              <th scope="col">Corretagem</th>
+              <th scope="col">ISS</th>
+              <th scope="col">Emolumentos</th>
+              <th scope="col">Liquidação</th>
+              <th scope="col">IRRF</th>
+              <th scope="col">Corretora</th>
+            </tr>
+          </thead>
+
+        <tbody>
+          {% for dado in dados_tabela%}                  
+          <tr>
+            <th scope="row">{{dado.notas_liq}}</th>
+            <td>{{dado.tipo_op}}</td>
+            <td>{{dado.data}}</td>
+            <td>{{dado.ativo}}</td>
+            <td>{{dado.modalidade}}</td>
+            <td>{{dado.mercado}}</td>
+            <td>{{dado.qtd}}</td>
+            <td>{{dado.valor_unit}}</td>
+            <td>{{dado.corretagem}}</td>
+            <td>{{dado.iss}}</td>
+            <td>{{dado.emolumentos}}</td>
+            <td>{{dado.liquidacao}}</td>
+            <td>{{dado.irrf}}</td>
+            <td>{{dado.corretora}}</td>
+
+          </tr>
+          {%endfor%}
+        </tbody>
+        </table>
+{%endblock%}

@@ -5,12 +5,22 @@ def setup():
 	cursor = connection.cursor()
 	# CREATE TABLE
 	
-	cmd = """CREATE TABLE IF NOT EXISTS scan_table (
-   		filename varchar(300),
-   		dir_path varchar(500),
-   		full_path varchar(500),
-  		hash varchar(500),
-   		device_id varchar(200)
+	cmd = """CREATE TABLE IF NOT EXISTS trades_table (
+   		id serial PRIMARY KEY,
+		nota_liq varchar(15),
+   		tipo_op varchar(6),
+   		data DATE,
+  		ativo varchar(8),
+   		modalidade varchar(15),
+		mercado varchar(10),
+		qtd integer,
+		preco_unit money,
+		corretagem money,
+		iss money,
+		emolumentos money,
+		liquidacao money,
+		irrf money,
+		corretora varchar(10)			
 				);
 	"""
 	cursor.execute(cmd)
