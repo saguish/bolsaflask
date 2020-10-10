@@ -1,9 +1,9 @@
 from connection import ConnectionFactory
-
+"""função para criação automatizada da tabela trades_table"""
 def setup():
 	connection = ConnectionFactory.getConnection()
 	cursor = connection.cursor()
-	# CREATE TABLE
+
 	
 	cmd = """CREATE TABLE IF NOT EXISTS trades_table (
    		id serial PRIMARY KEY,

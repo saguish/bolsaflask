@@ -1,13 +1,7 @@
 {% extends "index.html"%}
-<!-- 
-nota_liq varchar(15),
-  
-      
-    irrf money,
-          -->
+
 {% block cadastrar_trades%}
                  
-  
 <div class="container-fluid"> 
 <form action="{{url_for('cadastrar')}}" method="POST">
    
@@ -15,26 +9,26 @@ nota_liq varchar(15),
  <div class="form-row">
 
         <div class="form-group col-md-1">
-          <label for="inputAtivo">Nota</label>
-          <input type="number" class="form-control" name="inputNota" id="inputNota">
+          <label for="nota_liq">Nota</label>
+          <input type="number" class="form-control" name="nota_liq" id="nota_liq">
         </div>
 
 
         <div class="form-group col-md-2">
-          <label for="inputAtivo">Ativo</label>
-          <input type="text" class="form-control" name="inputAtivo" id="inputAtivo">
+          <label for="ativo">Ativo</label>
+          <input type="text" class="form-control" name="ativo" id="ativo" required>
         </div>
 
         <div class="form-group col-md-2">
-          <label for="inputQtd">Qtd</label>
-          <input type="number" class="form-control" name="inputQtd" id="inputQtd" >   
+          <label for="qtd">Qtd</label>
+          <input type="number" class="form-control" name="qtd" id="qtd" required>   
         </div>
 
 
         <div class="form-group col-md-2">
-          <label for="inputData">Data</label>
+          <label for="data">Data</label>
           <div class="input-group date" data-date-format="dd/mm/yyyy">
-            <input type='text' class="form-control" placeholder="dd/mm/yyyy" name="inputData" id='inputData'/>
+            <input type='text' class="form-control" placeholder="dd/mm/yyyy" name="data" id='data' required>
             <div class="input-group-addon">
               <span></span>
             </div>
@@ -43,8 +37,8 @@ nota_liq varchar(15),
      </div>
 
        <div class="form-group col-md-2">
-         <label for="inputModalidade">Modalidade</label>
-         <select name="inputModalidade" id="inputModalidade" class="form-control">
+         <label for="modalidade">Modalidade</label>
+         <select name="modalidade" id="modalidade" class="form-control">
             <option selected>Choose...</option>
             <option value="swingTrade">SwingTrade</option>
             <option value="dayTrade">DayTrade</option>
@@ -53,18 +47,18 @@ nota_liq varchar(15),
 
 
       <div class="form-group col-md-1">
-         <label for="inputMercado">Mercado</label>
-         <select name="inputMercado" id="inputMercado" class="form-control">
+         <label for="mercado">Mercado</label>
+         <select name="mercado" id="mercado" class="form-control">
             <option selected value="acoes">Ações</option>
             <option value="indice">Indices</option>
           </select>
        </div>
 
       <div class="form-group col-md-1">
-         <label for="inputTipoOp">Tipo</label>
-         <select name="inputTipoOp" id="inputTipoOp" class="form-control">
-            <option value="TipoOpCompra">Compra</option>
-            <option value="TipoOpVenda">Venda</option>
+         <label for="tipo_op">Tipo</label>
+         <select name="tipo_op" id="tipo_op" class="form-control">
+            <option selected value="COMPRA">Compra</option>
+            <option value="VENDA">Venda</option>
           </select>
        </div> 
 </div>
@@ -73,47 +67,43 @@ nota_liq varchar(15),
  <div class="form-row">
 
         <div class="form-group col-md-1">
-          <label for="inputPreco">Preço</label>
-          <input type="number" class="form-control" name="inputPreco" id="inputPreco">
+          <label for="preco_unit">Preço</label>
+          <input type="number" class="form-control" step=0.01 name="preco_unit" id="preco_unit" required>
         </div>
 
         <div class="form-group col-md-2">
-          <label for="inputCorretagem">Corretagem</label>
-          <input type="number" class="form-control" name="inputCorretagem" id="inputCorretagem">   
+          <label for="corretagem">Corretagem</label>
+          <input type="number" class="form-control" step=0.01 name="corretagem" id="corretagem" required>   
         </div>
         <div class="form-group col-md-2">
-          <label for="inputIss">ISS</label>
-          <input type="number" class="form-control" name="inputIss" id="inputIss">
+          <label for="iss">ISS</label>
+          <input type="number" class="form-control" step=0.01 name="iss" id="iss">
         </div>
 
        <div class="form-group col-md-2">
-         <label for="inputEmolumentos">Emolumentos</label>
-         <input type="number" class="form-control" name="inputEmolumentos" id="inputEmolumentos">
+         <label for="emolumentos">Emolumentos</label>
+         <input type="number" class="form-control" step=0.01 name="emolumentos" id="emolumentos">
        </div> 
 
         <div class="form-group col-md-2">
-         <label for="inputLiquidacao">Liquidação</label>
-         <input type="number" class="form-control" name="inputLiquidacao" id="inputLiquidacao">
+         <label for="liquidacao">Liquidação</label>
+         <input type="number" class="form-control" step=0.01 name="liquidacao" id="liquidacao">
        </div> 
 
        <div class="form-group col-md-1">
-          <label for="inputIRRF">IRRF</label>
-          <input type="number" class="form-control" name="inputIRRF" id="inputIRRF">
+          <label for="irrf">IRRF</label>
+          <input type="number" class="form-control" step=0.01 name="irrf" id="irrf">
         </div>
 
        <div class="form-group col-md-1">
-         <label for="inputCorretora">Corretora</label>
-         <select name="inputCorretora" id="inputCorretora" class="form-control">
+         <label for="corretora">Corretora</label>
+         <select name="corretora" id="corretora" class="form-control">
             <option selected value="Rico">Rico</option>
             <option value="Clear">Clear</option>
           </select>
        </div> 
-
-      
+    
 </div>
-
-        
-  
 
 
 <button type="submit" class="btn btn-primary">Cadastrar</button>
